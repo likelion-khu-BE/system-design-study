@@ -17,7 +17,7 @@
 | 10월 14일(수) | *휴회 — 중간고사* | — |
 | 10월 21일(수) | *휴회 — 중간고사* | — |
 | 10월 28일(수) | *휴회 — 중간고사* | — |
-| 11월 4일(수) | [5주차 — 호텔 예약 시스템](./w05-호텔-예약-시스템/) | `Transactions & Idempotency` · `Optimistic/Pessimistic Locking` · `Race Conditions` |
+| 11월 4일(수) | [5주차 — 호텔 예약 시스템](./w05-호텔-예약-시스템/) | `Idempotency` · `Locking` · `Concurrency` |
 | 11월 11일(수) | [6주차 — 객체 저장소](./w06-객체-저장소/) | `Object Storage` · `Replication` · `Erasure Coding` |
 | 11월 18일(수) | [7주차 — 결제 시스템](./w07-결제-시스템/) | `Idempotent Retry` · `Webhook-to-Ledger Flow` · `Reconciliation` |
 | 11월 25일(수) | [8주차 — 전자 지갑](./w08-전자-지갑/) | `Distributed Transactions (2PC/Saga)` · `Event Sourcing` · `CQRS` |
