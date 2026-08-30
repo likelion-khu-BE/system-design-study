@@ -7,21 +7,21 @@
 ## 세션 일정 ([커리큘럼](./CURRICULUM.md))
 
 
-| 날짜         | 일정                                        |
-| ---------- | ----------------------------------------- |
-| 9월 9일(수)   | [1주차 — 주변 친구](./w01-주변-친구/)               |
-| 9월 16일(수)  | [2주차 — 분산 메시지 큐](./w02-분산-메시지-큐/)         |
-| 9월 23일(수)  | [3주차 — 지표 모니터링 및 경보](./w03-지표-모니터링-및-경보/) |
-| 9월 30일(수)  | *휴회 — 가을 축제*                              |
-| 10월 7일(수)  | [4주차 — 광고 클릭 이벤트 집계](./w04-광고-클릭-이벤트-집계/) |
-| 10월 14일(수) | *휴회 — 중간고사*                               |
-| 10월 21일(수) | *휴회 — 중간고사*                               |
-| 10월 28일(수) | *휴회 — 중간고사*                               |
-| 11월 4일(수)  | [5주차 — 호텔 예약 시스템](./w05-호텔-예약-시스템/)       |
-| 11월 11일(수) | [6주차 — 객체 저장소](./w06-객체-저장소/)             |
-| 11월 18일(수) | [7주차 — 결제 시스템](./w07-결제-시스템/)             |
-| 11월 25일(수) | [8주차 — 전자 지갑](./w08-전자-지갑/)               |
-| 12월 2일(수)  | [9주차 — 증권 거래소](./w09-증권-거래소/)             |
+| 날짜 | 일정 | Keywords |
+| --- | --- | --- |
+| 9월 9일(수) | [1주차 — 주변 친구](./w01-주변-친구/) | `WebSocket` · `Redis Pub/Sub` · `Geohash` · `Fan-out` · `Consistent Hashing` |
+| 9월 16일(수) | [2주차 — 분산 메시지 큐](./w02-분산-메시지-큐/) | `Producer/Consumer` · `Topic & Partition` · `Broker` · `Consumer Group` · `Delivery Semantics` |
+| 9월 23일(수) | [3주차 — 지표 모니터링 및 경보](./w03-지표-모니터링-및-경보/) | `Time-Series Database (TSDB)` · `Pull/Push Model` · `Aggregation` · `Downsampling` · `Alerting` |
+| 9월 30일(수) | *휴회 — 가을 축제* | — |
+| 10월 7일(수) | [4주차 — 광고 클릭 이벤트 집계](./w04-광고-클릭-이벤트-집계/) | `Kafka` · `Stream Processing` · `Windowed Aggregation` · `Deduplication` · `Reprocessing` |
+| 10월 14일(수) | *휴회 — 중간고사* | — |
+| 10월 21일(수) | *휴회 — 중간고사* | — |
+| 10월 28일(수) | *휴회 — 중간고사* | — |
+| 11월 4일(수) | [5주차 — 호텔 예약 시스템](./w05-호텔-예약-시스템/) | `Database Transaction` · `Idempotency Key` · `Optimistic Locking` · `Pessimistic Locking` · `Race Condition` |
+| 11월 11일(수) | [6주차 — 객체 저장소](./w06-객체-저장소/) | `Object Storage` · `Metadata` · `Consistent Hashing` · `Replication` · `Erasure Coding` |
+| 11월 18일(수) | [7주차 — 결제 시스템](./w07-결제-시스템/) | `Idempotency` · `Retry` · `Webhook` · `Ledger` · `Reconciliation` |
+| 11월 25일(수) | [8주차 — 전자 지갑](./w08-전자-지갑/) | `Distributed Transaction` · `Two-Phase Commit (2PC)` · `Saga` · `Event Sourcing` · `CQRS` |
+| 12월 2일(수) | [9주차 — 증권 거래소](./w09-증권-거래소/) | `Order Book` · `Matching Engine` · `Sequencer` · `Event Sourcing` · `Determinism` |
 
 
 - 기간: 9월 9일(수)~12월 2일(수), 총 9회
