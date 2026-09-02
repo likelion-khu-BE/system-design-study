@@ -1,0 +1,37 @@
+name: 학습노트 Discord 알림
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "w*/학습노트/*.md"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: study-note-discord-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    name: 신규 학습노트 알림
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 신규 제출 Discord 알림
+        run: node .github/scripts/notify-study-note.mjs
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_SERVER_URL: ${{ github.server_url }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
