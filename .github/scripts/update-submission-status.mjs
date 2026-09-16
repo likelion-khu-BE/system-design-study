@@ -15,6 +15,17 @@ const members = [
   "장찬욱",
   "한예진",
 ];
+const presenters = new Map([
+  [1, "신선우"],
+  [2, "심아현"],
+  [3, "한예진"],
+  [4, "안시현"],
+  [5, "윤선재"],
+  [6, "임근엽"],
+  [7, "박세인"],
+  [8, "박현아"],
+  [9, "노희윤"],
+]);
 
 const firstWeek = 1;
 const lastWeek = 9;
@@ -49,6 +60,8 @@ const separator = header.map(() => "---");
 const rows = members.map((member) => [
   member,
   ...weeks.map((week) => {
+    if (presenters.get(week) === member) return "*발제*";
+
     const directory = weekDirectories.get(week);
     const notesDirectory = join(repositoryRoot, directory, "학습노트");
     const expectedFilename = `${member}.md`.normalize("NFC");
@@ -67,7 +80,29 @@ const rows = members.map((member) => [
 const table = [header, separator, ...rows]
   .map((row) => `| ${row.join(" | ")} |`)
   .join("\n");
-const generatedSection = `${startMarker}\n${table}\n${endMarker}`;
+const updatedAt = process.env.SUBMISSION_STATUS_UPDATED_AT
+  ? new Date(process.env.SUBMISSION_STATUS_UPDATED_AT)
+  : new Date();
+
+if (Number.isNaN(updatedAt.getTime())) {
+  throw new Error("SUBMISSION_STATUS_UPDATED_AT must be a valid date.");
+}
+
+const updatedAtParts = Object.fromEntries(
+  new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    year: "2-digit",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  })
+    .formatToParts(updatedAt)
+    .map(({ type, value }) => [type, value]),
+);
+const lastUpdated = `*최근 업데이트: ${updatedAtParts.year}.${updatedAtParts.month}.${updatedAtParts.day} ${updatedAtParts.hour}:${updatedAtParts.minute}*`;
+const generatedSection = `${startMarker}\n${table}\n\n${lastUpdated}\n${endMarker}`;
 const readme = readFileSync(readmePath, "utf8");
 const markerPattern = new RegExp(`${startMarker}[\\s\\S]*?${endMarker}`, "u");
 
