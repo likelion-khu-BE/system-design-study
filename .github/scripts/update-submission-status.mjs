@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -50,10 +50,15 @@ const rows = members.map((member) => [
   member,
   ...weeks.map((week) => {
     const directory = weekDirectories.get(week);
-    const notePath = join(repositoryRoot, directory, "학습노트", `${member}.md`);
+    const notesDirectory = join(repositoryRoot, directory, "학습노트");
+    const expectedFilename = `${member}.md`.normalize("NFC");
+    const actualFilename = readdirSync(notesDirectory).find(
+      (filename) => filename.normalize("NFC") === expectedFilename,
+    );
 
-    if (!existsSync(notePath)) return "-";
+    if (!actualFilename) return "-";
 
+    const notePath = join(notesDirectory, actualFilename);
     const sourcePath = relative(repositoryRoot, notePath).split("/").join("/");
     return `[제출](./${sourcePath})`;
   }),
