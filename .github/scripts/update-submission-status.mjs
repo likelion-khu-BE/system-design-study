@@ -15,6 +15,19 @@ const members = [
   "장찬욱",
   "한예진",
 ];
+const githubProfiles = new Map([
+  ["김우진", "https://github.com/xhae123"],
+  ["노희윤", "https://github.com/hyroh5"],
+  ["박세인", "https://github.com/parksein0223"],
+  ["박현아", "https://github.com/qoxkal"],
+  ["신선우", "https://github.com/sunwoo1256"],
+  ["심아현", "https://github.com/ahyeon24"],
+  ["안시현", "https://github.com/xihxxn"],
+  ["윤선재", "https://github.com/Suuunz"],
+  ["임근엽", "https://github.com/lbeul372"],
+  ["장찬욱", "https://github.com/cjang3285"],
+  ["한예진", "https://github.com/Yejin111"],
+]);
 const presenters = new Map([
   [1, "신선우"],
   [2, "심아현"],
@@ -58,7 +71,7 @@ for (const week of weeks) {
 const header = ["이름", ...weeks.map((week) => `${week}주차`)];
 const separator = header.map(() => "---");
 const rows = members.map((member) => [
-  member,
+  `[${member}](${githubProfiles.get(member)})`,
   ...weeks.map((week) => {
     if (presenters.get(week) === member) return "*발제*";
 
